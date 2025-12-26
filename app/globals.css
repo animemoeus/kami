@@ -20,9 +20,9 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   
-  /* Brutalist spacing and borders */
-  --border-width-brutal: 3px;
-  --border-width-heavy: 5px;
+  /* Lighter brutalist spacing and borders */
+  --border-width-brutal: 2px;
+  --border-width-heavy: 3px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,11 +52,11 @@ body {
 }
 
 .brutal-shadow {
-  box-shadow: 6px 6px 0 var(--border);
+  box-shadow: 4px 4px 0 var(--border);
 }
 
 .brutal-shadow-lg {
-  box-shadow: 10px 10px 0 var(--border);
+  box-shadow: 6px 6px 0 var(--border);
 }
 
 /* Brutalist editor overrides */
@@ -83,20 +83,20 @@ body {
 .brutalist-editor code {
   background: var(--muted);
   padding: 2px 6px;
-  border: 2px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: 0;
   font-family: var(--font-geist-mono), monospace;
 }
 
 .brutalist-editor pre {
   background: var(--muted);
-  border: 3px solid var(--border);
+  border: 2px solid var(--border);
   border-radius: 0;
   padding: 16px;
 }
 
 .brutalist-editor blockquote {
-  border-left: 5px solid var(--accent);
+  border-left: 3px solid var(--accent);
   padding-left: 16px;
   font-style: normal;
   font-weight: 600;
