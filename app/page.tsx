@@ -28,10 +28,10 @@ export default function Home() {
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                             <div>
                                 <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-2">
-                                    ✏️ KAMI
+                                    # KAMI
                                 </h1>
                                 <p className="text-lg md:text-xl font-mono text-foreground/70">
-                                    紙 / paper — instant markdown sharing
+                                    type it. link it. share it.
                                 </p>
                             </div>
                             
