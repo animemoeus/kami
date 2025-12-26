@@ -67,5 +67,9 @@ export default function Editor() {
     };
   }, [editor]);
 
-  return <BlockNoteView editor={editor} />;
+  return (
+    <div className="brutalist-editor min-h-[400px]">
+      <BlockNoteView editor={editor} theme="light" />
+    </div>
+  );
 }
