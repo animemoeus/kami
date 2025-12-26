@@ -7,17 +7,15 @@ import { useEffect, useMemo } from "react";
 import LZString from "lz-string";
 
 export default function Editor() {
-  // Load initial content from URL on mount
+  // Load initial content from URL hash on mount
   const initialMarkdown = useMemo(() => {
     if (typeof window === "undefined") return "";
     
-    const params = new URLSearchParams(window.location.search);
-    const compressed = params.get("data");
+    const hash = window.location.hash.slice(1); // Remove the #
     
-    if (compressed) {
+    if (hash) {
       try {
-        const decompressed = LZString.decompressFromEncodedURIComponent(compressed);
-        return decompressed || "";
+        return LZString.decompressFromEncodedURIComponent(hash) || "";
       } catch (error) {
         console.error("Failed to decompress data:", error);
         return "";
@@ -51,11 +49,8 @@ export default function Editor() {
       const markdown = await editor.blocksToMarkdownLossy(editor.document);
       const compressed = LZString.compressToEncodedURIComponent(markdown);
       
-      const url = new URL(window.location.href);
-      url.searchParams.set("data", compressed);
-      
-      // Update browser URL without reload
-      window.history.replaceState({}, "", url.toString());
+      // Update browser URL hash without reload
+      window.history.replaceState({}, "", `#${compressed}`);
     };
 
     // Listen to editor changes
