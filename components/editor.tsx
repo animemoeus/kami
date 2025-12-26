@@ -3,12 +3,13 @@ import "@blocknote/core/fonts/inter.css";
 import { useCreateBlockNote } from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/mantine";
 import "@blocknote/mantine/style.css";
-import { useEffect, useMemo } from "react";
+import { useEffect, useState } from "react";
 import LZString from "lz-string";
 
 export default function Editor() {
-  // Load initial content from URL hash on mount
-  const initialMarkdown = useMemo(() => {
+  // Load initial content from URL hash on mount (lazy initialization)
+  const [initialMarkdown] = useState(() => {
+    // This function only runs once on the client side
     if (typeof window === "undefined") return "";
     
     const hash = window.location.hash.slice(1); // Remove the #
@@ -22,7 +23,7 @@ export default function Editor() {
       }
     }
     return "";
-  }, []);
+  });
 
   const editor = useCreateBlockNote();
 
